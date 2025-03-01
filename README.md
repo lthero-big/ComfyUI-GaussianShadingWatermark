@@ -2,13 +2,14 @@
 
 [中文](README_ZH.md)  
 
-This repository **UNOFFICIAL** a invisable watermarking method named Gaussian Shading for Comfyui
+This repository **UNOFFICIAL** a invisable watermarking method named Gaussian Shading for Comfyui.
 
 ["Gaussian Shading: Provable Performance-Lossless Image Watermarking for Diffusion Models"](https://arxiv.org/abs/2404.04956) (Accepted by CVPR 2024).
 
-# ComfyUI Watermark Tool
+This watermark tool provides a plug-and-play solution for embedding custom watermark messages into the image generation workflow. It is designed to integrate seamlessly with ComfyUI. Example workflows (for stable 1.5, PixArt, and Flux versions) are provided which cover the entire 
+process of watermark embedding, image generation, and watermark extraction.
 
-This watermark tool provides a plug-and-play solution for embedding custom watermark messages into the image generation workflow. It is designed to integrate seamlessly with ComfyUI. Example workflows (for stable 1.5, PixArt, and Flux versions) are provided which cover the entire process of watermark embedding, image generation, and watermark extraction.
+![Display](Display.png)
 
 ## Features
 - **Easy Integration:** Simply plug this module into your ComfyUI workflows.
