@@ -17,6 +17,12 @@ process of watermark embedding, image generation, and watermark extraction.
 - **Complete Workflow:** Example workflows demonstrate the embedding of the watermark, generation of images, and extraction of the watermark.
 - **Multiple Implementations:** The tool currently supports method Gaussian Shading (GS) for watermark embedding.
 
+## Installation
+```
+cd ComfyUI/custom_nodes/
+git clone https://github.com/lthero-big/Comfyui-GaussianShadingWatermark.git
+```
+
 ## Usage
 1. **Set the Watermark Message:**  
    Edit the `message` parameter in the node settings to your custom watermark text.
