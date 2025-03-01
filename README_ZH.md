@@ -21,7 +21,7 @@ cd ComfyUI/custom_nodes/
 添加 DPRW 节点 将包含 DPRW 节点的 Python 文件复制到 ComfyUI 的 custom_nodes 目录
 
 ```
-git clone https://github.com/lthero-big/Comfyui-DPRWatermark.git
+git clone https://github.com/lthero-big/Comfyui-GaussianShadingWatermark.git
 ```
 
 ## 使用方法
