@@ -12,6 +12,18 @@
 - **完整流程：** 示例工作流包括水印嵌入、图像生成以及水印提取三个步骤。
 - **多种实现：** 当前工具支持 Gaussian Shading (GS) 水印嵌入方法。
 
+## 安装
+进入 ComfyUI 目录 在终端或命令行中运行以下命令：
+```
+cd ComfyUI/custom_nodes/
+```
+
+添加 DPRW 节点 将包含 DPRW 节点的 Python 文件复制到 ComfyUI 的 custom_nodes 目录
+
+```
+git clone https://github.com/lthero-big/Comfyui-DPRWatermark.git
+```
+
 ## 使用方法
 1. **设置水印消息：**  
    在节点设置中编辑 `message` 参数，输入您希望嵌入的水印文字。
