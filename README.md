@@ -1,5 +1,7 @@
 # Comfyui-GaussianShadingWatermark
 
+[中文](README_ZH.md)  
+
 This repository **UNOFFICIAL** a invisable watermarking method named Gaussian Shading for Comfyui
 
 ["Gaussian Shading: Provable Performance-Lossless Image Watermarking for Diffusion Models"](https://arxiv.org/abs/2404.04956) (Accepted by CVPR 2024).
