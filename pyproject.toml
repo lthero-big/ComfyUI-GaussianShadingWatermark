@@ -1,0 +1,15 @@
+[project]
+name = "gaussianshadingwatermark"
+description = ""
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["Pillow>=8.0.0", "numpy>=1.19.0", "scikit-image>=0.17.0", "torch>=1.8.0", "cryptography>=3.4.7", "scipy>=1.5.0"]
+
+[project.urls]
+Repository = "https://github.com/lthero-big/ComfyUI-GaussianShadingWatermark"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "lthero"
+DisplayName = "ComfyUI-GaussianShadingWatermark"
+Icon = ""
