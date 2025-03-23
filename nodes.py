@@ -313,14 +313,12 @@ class DPRKSamplerAdvanced:
                                force_full_denoise=force_full_denoise, use_dprw=use_dprw, watermarked_latent_noise=watermarked_latent_noise)
 
 NODE_CLASS_MAPPINGS = {
-    "DPR_Latent": DPRLatent,
     "DPR_Extractor": DPRExtractor,
     "DPR_KSamplerAdvanced": DPRKSamplerAdvanced,
     "DPR_GS_Latent": GSLatent,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "DPR_Latent": "DPR Latent",
     "DPR_Extractor": "DPR Extractor",
     "DPR_KSamplerAdvanced": "DPR KSampler Advanced",
     "DPR_GS_Latent": "DPR GS Latent Noise",
