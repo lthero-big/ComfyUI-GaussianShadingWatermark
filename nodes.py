@@ -255,26 +255,39 @@ class DPRExtractor:
             }
         }
 
-    RETURN_TYPES = ("STRING", "STRING","LATENT")
+    RETURN_TYPES = ("STRING", "STRING","STRING","STRING")  
     FUNCTION = "extract"
     CATEGORY = "DPRW/extractor"
 
-    def extract(self, latents, key, nonce,message, window_size,watermarkMethod):
+    def extract(self, latents, key, nonce,message, message_length, window_size,watermarkMethod):
+        """从潜在表示中提取水印"""
         if not isinstance(latents, dict) or "samples" not in latents:
             raise ValueError("latents must be a dictionary containing 'samples' key")
-        
+        print(f"message_length {message_length}",type(message_length))
         noise = latents["samples"]
-        if watermarkMethod == "DPRW":
-            dprw = DPRWatermark(key, nonce,latent_channels=noise.shape[1])
+        if message != "":
             message_length = len(message) * 8
-            extracted_msg_bin, extracted_msg_str = dprw.extract_watermark(noise, message_length, window_size)
-            dprw.evaluate_accuracy(message, extracted_msg_bin,extracted_msg_str)
-        elif watermarkMethod == "GS":
-            gs = GSWatermark(key, nonce,latent_channels=noise.shape[1])
-            message_length = len(message) * 8
-            extracted_msg_bin, extracted_msg_str = gs.extract_watermark(noise, message_length, window_size)
-            gs.evaluate_accuracy(message, extracted_msg_bin,extracted_msg_str)
-        return (extracted_msg_bin, extracted_msg_str,latents)
+        elif message_length != "":
+            message_length = int(message_length)    
+        else:
+            raise ValueError("message_length or message must be provided, if you only know the message length, please provide the length")
+        
+        gs = GSWatermark(key, nonce,latent_channels=noise.shape[1])
+        extracted_msg_bin, extracted_msg_str = gs.extract_watermark(noise, message_length, window_size)
+        if message != "":
+            orig_bin,accuracy = gs.evaluate_accuracy(message, extracted_msg_bin,extracted_msg_str)
+        else:
+            orig_bin,accuracy = extracted_msg_bin,-1
+
+        Extracted_bin_str = f"Extracted binary: {extracted_msg_bin}"
+        Extracted_msg_str = f"Extracted message: {extracted_msg_str}"
+        if accuracy != -1:
+            Accuray_str = f"Accuracy: {accuracy:.2f} ({accuracy*100:.2f}%)"
+            Orig_bin_str = f"Original binary: {orig_bin}"
+        else:
+            Orig_bin_str = f"Provide the original message"
+            Accuray_str = f"Provide the original message to evaluate the accuracy"
+        return (Orig_bin_str, Extracted_bin_str, Extracted_msg_str,Accuray_str)
 
 class DPRKSamplerAdvanced:
     @classmethod
